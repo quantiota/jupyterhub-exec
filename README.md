@@ -96,32 +96,6 @@ def assign_gpu(spawner):
 
 c.Spawner.pre_spawn_hook = assign_gpu
 ```
-## SSL
-
-HTTPS is enabled by default. For a local GPU server on the same network, disable it:
-
-```bash
-JH_SSL=false
-JH_HOST=192.168.1.100
-JH_PORT=8000
-```
-
-For a public JupyterHub over HTTPS (default):
-
-```bash
-JH_SSL=true
-JH_HOST=hub.example.com
-JH_PORT=443
-```
-
-Or via CLI:
-
-```bash
-jh-exec --ssl --host hub.example.com --port 443 --user agent-01 --token your_token run script.py
-```
-
-
-
 
 
 

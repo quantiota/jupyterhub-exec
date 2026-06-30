@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jupyterhub-exec"
+version = "0.1.0"
+description = "Execute code on a remote JupyterHub kernel from any terminal — zero dependencies."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+keywords = ["jupyterhub", "jupyter", "kernel", "gpu", "offload", "agent"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: System :: Distributed Computing",
+]
+
+[project.scripts]
+jh-exec = "jh_exec.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

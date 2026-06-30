@@ -84,6 +84,19 @@ def assign_gpu(spawner):
 
 c.Spawner.pre_spawn_hook = assign_gpu
 ```
+## Benchmark
+
+Validated on NVIDIA GeForce GTX TITAN X via `gpu_demo.py`:
+
+```
+GPU: NVIDIA GeForce GTX TITAN X  (11.9 GiB)  torch 2.5.1+cu121
+8192x8192 matmul: 235.9 ms  (4.7 TFLOP/s)
+checksum: 890989.3125
+allocated: 776 MiB
+```
+
+Full GPU offload from a Claude Code terminal — zero local GPU, zero dependencies.
+
 
 ## License
 

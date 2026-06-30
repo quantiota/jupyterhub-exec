@@ -49,7 +49,7 @@ JH_TOKEN=your_token_here
 JH_TIMEOUT=600
 ```
 
-**Local JupyterHUb (HTTP):**
+**Local JupyterHub (HTTP):**
 ```bash
 JH_HOST=192.168.1.100
 JH_PORT=8000

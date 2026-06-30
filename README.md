@@ -1,6 +1,7 @@
 # jupyterhub-exec
 
-Execute code on a remote JupyterHub kernel from any terminal — zero external dependencies.
+
+Born from an AI agent farm, solving a real infrastructure problem. Execute code on a remote JupyterHub kernel from any terminal — zero external dependencies.
 
 ```
 pip install jupyterhub-exec

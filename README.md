@@ -160,7 +160,7 @@ $ jh-exec run ml_demo.py
 >>> ran on NVIDIA GeForce GTX TITAN X in 0.77s  (39.0 steps/s)
 ```
 
-**~41× faster**, zero code change, zero local GPU — a CPU-only terminal offloading real
+**~46× faster**, zero code change, zero local GPU — a CPU-only terminal offloading real
 training to a remote GPU it doesn't have.
 
 Full GPU offload from a Claude Code terminal — zero local GPU, zero dependencies.

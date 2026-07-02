@@ -128,15 +128,16 @@ $ python3 ml_demo.py
 ====================================================
   Device : CPU
   torch  : 2.11.0+cu130
+  vCPUs  : 8
 ====================================================
   step   1/30   loss 1.0095
   step  10/30   loss 0.9030
   step  20/30   loss 0.7048
   step  30/30   loss 0.5562
 ----------------------------------------------------
-  30 steps in 35.45s   (0.8 steps/s)
+  30 steps in 35.38s   (0.8 steps/s)
 ====================================================
->>> ran on CPU in 35.45s  (0.8 steps/s)
+>>> ran on CPU in 35.38s  (0.8 steps/s)
 ```
 
 Offloaded to the remote GPU kernel:
@@ -146,16 +147,17 @@ $ jh-exec run ml_demo.py
 ====================================================
   Device : NVIDIA GeForce GTX TITAN X
   torch  : 2.5.1+cu121
+  vCPUs  : 12
 ====================================================
   step   1/30   loss 1.0114
   step  10/30   loss 0.8923
   step  20/30   loss 0.6796
   step  30/30   loss 0.4982
 ----------------------------------------------------
-  30 steps in 0.86s   (34.9 steps/s)
-  GPU memory used: 1008 MiB
+  30 steps in 0.77s   (39.0 steps/s)
+  GPU memory used: 1720 MiB
 ====================================================
->>> ran on NVIDIA GeForce GTX TITAN X in 0.86s  (34.9 steps/s)
+>>> ran on NVIDIA GeForce GTX TITAN X in 0.77s  (39.0 steps/s)
 ```
 
 **~41× faster**, zero code change, zero local GPU — a CPU-only terminal offloading real

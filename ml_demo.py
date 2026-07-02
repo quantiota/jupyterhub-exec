@@ -10,6 +10,7 @@ on plus the throughput — so the two runs make the offload obvious side by side
 
 Scale STEPS / N below if the CPU run is too long (or too short) for your video.
 """
+import os
 import time
 import torch
 import torch.nn as nn
@@ -17,9 +18,11 @@ import torch.nn as nn
 # ---- pick the device this run landed on -------------------------------------
 dev = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 name = torch.cuda.get_device_name(0) if dev.type == "cuda" else "CPU"
+vcpus = len(os.sched_getaffinity(0)) if hasattr(os, "sched_getaffinity") else (os.cpu_count() or 1)
 print("=" * 52)
 print(f"  Device : {name}")
 print(f"  torch  : {torch.__version__}")
+print(f"  vCPUs  : {vcpus}")
 print("=" * 52)
 
 # ---- a small-but-not-trivial training workload ------------------------------

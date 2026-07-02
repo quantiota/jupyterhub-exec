@@ -9,16 +9,26 @@ It reports the visible GPU(s) and runs a matrix multiply on the device to
 prove compute actually lands on the GPU.
 """
 
+import os
+
 import torch
 
 
+def _vcpus():
+    """Logical CPUs usable by this process (respects container/cgroup limits)."""
+    if hasattr(os, "sched_getaffinity"):
+        return len(os.sched_getaffinity(0))
+    return os.cpu_count() or 1
+
+
 def main():
+    vcpus = _vcpus()
     if not torch.cuda.is_available():
-        print("No CUDA device visible to this kernel — running on CPU only.")
+        print(f"No CUDA device visible to this kernel — running on CPU only ({vcpus} vCPUs).")
         return
 
     n_gpus = torch.cuda.device_count()
-    print(f"Visible GPUs: {n_gpus}  torch {torch.__version__}")
+    print(f"Visible GPUs: {n_gpus}  vCPUs: {vcpus}  torch {torch.__version__}")
     for i in range(n_gpus):
         name = torch.cuda.get_device_name(i)
         total_gb = torch.cuda.get_device_properties(i).total_memory / 1024**3
